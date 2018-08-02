@@ -1,4 +1,4 @@
-from dbhelper import dbhelper
+from dbhelper import DBHelper
 from flask import Flask
 from flask import render_template
 from flask import request
