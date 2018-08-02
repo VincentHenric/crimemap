@@ -6,11 +6,11 @@
     <title>Crime Map</title>
   </head>
   <h1>Crime Map</h1>
-  <form action="/add" method="POST">
+  <form action="/crimemap2/add" method="POST">
     <input type="text" name="userinput">
     <input type="submit" value="Submit">
   </form>
-    <a href="/clear">clear</a>
+    <a href="/crimemap2/clear">clear</a>
     {% for userinput in data %}
     <p>{{userinput}}</p>
     {% endfor %}
