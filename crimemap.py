@@ -15,7 +15,7 @@ def home():
         data = None
     return render_template('home.html', data = data)
 
-@app.route("/add", methods = ['POST'])
+@app.route("crimemap2/add", methods = ['POST'])
 def add():
     try:
         data = request.form.get('userinput')
@@ -24,7 +24,7 @@ def add():
         print e
     return home()
 
-@app.route("/clear")
+@app.route("/crimemap2/clear")
 def clear():
     try:
         DB.clear_all()
