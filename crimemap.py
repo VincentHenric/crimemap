@@ -15,7 +15,7 @@ def home():
         data = None
     return render_template('home.html', data = data)
 
-@app.route("crimemap2/add", methods = ['POST'])
+@app.route("/crimemap2/add", methods = ['POST'])
 def add():
     try:
         data = request.form.get('userinput')
