@@ -9,7 +9,6 @@ else:
 import routing_params
 
 app = Flask(__name__)
-app.config["APPLICATION_ROOT"] = routing_params.APPLICATION_ROOT
 DB = DBHelper()
 
 @app.route("/")
@@ -19,7 +18,7 @@ def home():
     except Exception as e:
         print e
         data = None
-    return render_template('home.html', data = data)
+    return render_template('home.html', data = data, route_prefix = route_prefix)
 
 @app.route("/add", methods = ['POST'])
 def add():
