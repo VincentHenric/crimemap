@@ -15,9 +15,9 @@ import routing_params
 app = Flask(__name__)
 DB = DBHelper()
 
-handler = RotatingFileHandler('./log.logs')
-handler.setLevel(logging.DEBUG)
-app.logger.addHandler(handler)
+#handler = RotatingFileHandler('./log.logs')
+#handler.setLevel(logging.DEBUG)
+#app.logger.addHandler(handler)
 
 @app.route("/")
 def home():
