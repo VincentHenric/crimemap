@@ -1,7 +1,12 @@
-from dbhelper import DBHelper
 from flask import Flask
 from flask import render_template
 from flask import request
+import dbconfig
+if dbconfig.test:
+    from mockdbhelper import MockDBHelper as DBHelper
+else:
+    from dbhelper import DBHelper
+import routing_params
 
 app = Flask(__name__)
 DB = DBHelper()
@@ -13,7 +18,7 @@ def home():
     except Exception as e:
         print e
         data = None
-    return render_template('home.html', data = data)
+    return render_template('home.html', data = data, route_prefix = route_prefix)
 
 @app.route("/add", methods = ['POST'])
 def add():
