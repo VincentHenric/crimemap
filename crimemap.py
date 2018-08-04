@@ -6,9 +6,11 @@ if dbconfig.test:
     from mockdbhelper import MockDBHelper as DBHelper
 else:
     from dbhelper import DBHelper
-import routing_params
+import json
+
 import logging
 from logging.handlers import RotatingFileHandler
+import routing_params
 
 app = Flask(__name__)
 DB = DBHelper()
@@ -19,12 +21,9 @@ app.logger.addHandler(handler)
 
 @app.route("/")
 def home():
-    try:
-        data = DB.get_all_inputs()
-    except Exception as e:
-        print e
-        data = None
-    return render_template('home.html', data = data, route_prefix = routing_params.route_prefix)
+    crimes = DB.get_all_crimes()
+    crimes = json.dumps(crimes)
+    return render_template('home.html', crimes = crimes, route_prefix = routing_params.route_prefix)
 
 @app.route("/add", methods = ['POST'])
 def add():
