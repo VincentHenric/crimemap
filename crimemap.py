@@ -8,8 +8,8 @@ else:
     from dbhelper import DBHelper
 import json
 
-import logging
-from logging.handlers import RotatingFileHandler
+#import logging
+#from logging.handlers import RotatingFileHandler
 import routing_params
 
 app = Flask(__name__)
