@@ -7,9 +7,15 @@ if dbconfig.test:
 else:
     from dbhelper import DBHelper
 import routing_params
+import logging
+from logging.handlers import RotatingFileHandler
 
 app = Flask(__name__)
 DB = DBHelper()
+
+handler = RotatingFileHandler('./log.logs')
+handler.setLevel(logging.DEBUG)
+app.logger.addHandler(handler)
 
 @app.route("/")
 def home():

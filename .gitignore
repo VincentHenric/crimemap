@@ -1,3 +1,4 @@
 dbconfig.py
 *.pyc
 routing_params.py
+*.logs
